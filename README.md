@@ -286,6 +286,20 @@ The Host half only picks up code changes on a DSH restart (the client half reloa
 by itself via `dsh-client-hmr`). Until then the buttons answer with
 `宿主端尚未加载测试路由，请重启 DSH` rather than a bare HTTP status.
 
+## Requirements
+
+- DeepSeek Harness, with a Web UI profile (this plugin registers a client half; the
+  panel is a Web UI slot, so an existing Web profile is assumed).
+- `dsh-our-free-model` — the panel renders *its* data. Without that plugin there is no
+  availability, catalog, or token ledger to read, and the panel shows an empty state
+  rather than failing.
+- Optional: a `dsh-ofm-health` heartbeat and order file live under `~/.dsh/ofm-health/`;
+  they are created on first use.
+
+Nothing here talks to a model provider directly. Every number comes from files the
+other plugin already writes, plus the test route, which goes through the same
+`llm.stream()` path a chat turn uses.
+
 ## Install
 
 ```powershell
