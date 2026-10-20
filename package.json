@@ -1,0 +1,53 @@
+{
+  "name": "dsh-ofm-health",
+  "version": "0.2.0",
+  "description": "Show dsh-our-free-model connectivity and measured speed in the composer's model toolbar, so a model's health is visible at selection time.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Data-Zeta-Analysis/dsh-ofm-health.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Data-Zeta-Analysis/dsh-ofm-health/issues"
+  },
+  "homepage": "https://github.com/Data-Zeta-Analysis/dsh-ofm-health#readme",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "our-free-model",
+    "model-health"
+  ],
+  "scripts": {
+    "test": "node tests/unit.test.mjs && node tests/drag.test.mjs && node tests/render.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [],
+      "external": [
+        "react"
+      ]
+    }
+  }
+}

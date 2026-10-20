@@ -1,0 +1,8 @@
+# Standard DSH profile bundle. The patch loads the Host half, which registers a
+# single read-only route; package.json's `dsh.client` declaration is what makes
+# DSH discover lib/client.js for the Web UI.
+#
+# The Host half takes no configuration.
+- insert:
+    - id: dsh-ofm-health
+      name: dsh-ofm-health
